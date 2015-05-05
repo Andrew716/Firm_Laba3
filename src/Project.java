@@ -9,8 +9,7 @@ public class Project {
     private Manager manager;
     private Set<Employee> employeesOnProject = new HashSet<Employee>();
 
-    public Project(Manager manager, String nameOfProject) {
-        this.manager = manager;
+    public Project(String nameOfProject) {
         this.nameOfProject = nameOfProject;
     }
 
@@ -22,12 +21,28 @@ public class Project {
         this.employeesOnProject = employeesOnProject;
     }
 
+    public Manager getManager() {
+        return manager;
+    }
+
+    public void setManager(Manager manager) {
+        this.manager = manager;
+    }
+
+    public String getNameOfProject() {
+        return nameOfProject;
+    }
+
+    public void setNameOfProject(String nameOfProject) {
+        this.nameOfProject = nameOfProject;
+    }
+
     public void addEmployee(Employee newEmployee){
         employeesOnProject.add(newEmployee);
     }
 
     @Override
     public String toString(){
-        return "Project :  " + nameOfProject + " " + manager;
+        return "Project :  "+"  name of project = " + nameOfProject+ "   " +  manager;
     }
 }

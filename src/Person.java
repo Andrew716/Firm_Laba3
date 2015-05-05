@@ -7,9 +7,9 @@ public abstract class Person {
     protected String name;
     protected String surname;
     protected Date birthdayDate;
-    protected IdCard id;
+    protected int id;
 
-    public Person(Date birthdayDate, IdCard id, String name, String surname) {
+    public Person(Date birthdayDate, int id, String name, String surname) {
         this.birthdayDate = birthdayDate;
         this.id = id;
         this.name = name;
@@ -24,7 +24,7 @@ public abstract class Person {
         this.birthdayDate = birthdayDate;
     }
 
-    public IdCard getId() {
+    public int getId() {
         return id;
     }
 

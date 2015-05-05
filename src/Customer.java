@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Andrii on 3/17/2015.
@@ -6,7 +8,7 @@ import java.util.*;
 public class Customer extends Person {
     private Set<Project> projects = new HashSet<Project>();
 
-    public Customer(Date birthdayDate, IdCard id, String name, String surname) {
+    public Customer(Date birthdayDate, int id, String name, String surname) {
         super(birthdayDate, id, name, surname);
     }
 

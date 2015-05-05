@@ -1,6 +1,7 @@
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
+
 
 /**
  * Created by Andrii on 3/17/2015.
@@ -14,13 +15,6 @@ public class MainClass {
         final String date4 = "1998-01-18";
         final String date5 = "1992-02-12";
         final String date6 = "1993-01-10";
-        //create id
-        IdCard id1 = new IdCard(1);
-        IdCard id2 = new IdCard(2);
-        IdCard id3 = new IdCard(3);
-        IdCard id4 = new IdCard(4);
-        IdCard id5 = new IdCard(5);
-        IdCard id6 = new IdCard(6);
         //connect date
         Date birthday1 = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
         Date birthday2 = new SimpleDateFormat("yyyy-MM-dd").parse(date2);
@@ -28,24 +22,78 @@ public class MainClass {
         Date birthday4 = new SimpleDateFormat("yyyy-MM-dd").parse(date4);
         Date birthday5 = new SimpleDateFormat("yyyy-MM-dd").parse(date5);
         Date birthday6 = new SimpleDateFormat("yyyy-MM-dd").parse(date6);
+        //create customers
+        Customer customer1 = new Customer(birthday1, 9, "Sasha", "Yanko");
+        Customer customer2 = new Customer(birthday3, 10, "Lera", "Andrienko");
         //create departments
         Department programmerDepartment = new Department("Programmers");
         Department analytysisDepartment = new Department("Analysis");
         Department designerDepartment = new Department("Designer");
         Department financianalDepartment = new Department("Finansest");
+        //create list of departments and fill it
+        List<Department> departmentList = new LinkedList<Department>();
+        departmentList.add(programmerDepartment);
+        departmentList.add(analytysisDepartment);
+        departmentList.add(designerDepartment);
+        departmentList.add(financianalDepartment);
         //create managers
-        Manager manager1 = new Manager(birthday1, id1, "Sergii","Khomich");
-        Manager manager2 = new Manager(birthday2, id2, "Petro", "Poroshenko");
+        Manager manager1 = new Manager(birthday1, 1, "Sergii","Khomich");
+        Manager manager2 = new Manager(birthday2, 2, "Petro", "Poroshenko");
+        Manager manager3 = new Manager(birthday1, 3, "Tatyana", "Montyan");
+        Manager manager4 = new Manager(birthday4, 5, "Anton", "Malcev" );
          //create projects
-        Project projectEco = new Project(manager1, "EcoProject");
-        Project projectZELO = new Project(manager2, "ZELO");
+        Project projectEco = new Project("EcoProject");
+        Project projectZELO = new Project("ZELO");
+        Project projectGround = new Project("Ground");
+        Project projectAir = new Project("Air");
+        //set manager for project
+        projectAir.setManager(manager1);
+        projectEco.setManager(manager2);
+        projectGround.setManager(manager3);
+        projectZELO.setManager(manager4);
+        projectZELO.setManager(manager1);
+        //create list of projects
+        Set<Project> listOfProjects1 = new HashSet<Project>();
+        Set<Project> listOfProjects2 = new HashSet<Project>();
+        Set<Project> listOfProjects3 = new HashSet<Project>();
+        //fill lists of projects
+        listOfProjects1.add(projectEco);
+        listOfProjects1.add(projectAir);
+        listOfProjects2.add(projectGround);
+        listOfProjects3.add(projectZELO);
+        listOfProjects3.add(projectGround);
         //create employees
-        Employee employee1 = new Employee(birthday1,id1,"Mykita","Kachko",programmerDepartment,"developer","asfd");
-        Employee employee2 = new Employee(birthday2,id2,"Andrii","Chesanovskii",analytysisDepartment,"analytic","asfd");
-        Employee employee3 = new Employee(birthday3,id3,"Dmitro","Kryvolap",designerDepartment,"designer","asfd");
-        Employee employee4 = new Employee(birthday4, id4,"Igor","Galitskii",financianalDepartment,"finansist",null);
-        Employee employee5 = new Employee(birthday5, id5, "Roman", "Bondar", programmerDepartment, "QAdeveloper",null);
-        Employee employee6 = new Employee(birthday6, id6, "Taras", "Shevchuk", programmerDepartment, "developer","asfd");
+        Employee employee1 = new Employee(birthday1,3,"Mykita","Kachko");
+        Employee employee2 = new Employee(birthday2,4,"Andrii","Chesanovskii");
+        Employee employee3 = new Employee(birthday3,5,"Dmitro","Kryvolap");
+        Employee employee4 = new Employee(birthday4,6,"Igor","Galitskii");
+        Employee employee5 = new Employee(birthday5,7, "Roman", "Bondar");
+        Employee employee6 = new Employee(birthday6,8, "Taras", "Shevchuk");
+        //create list of employees and fill it
+        List<Employee> employeeList = new LinkedList<Employee>();
+        employeeList.add(employee1);
+        employeeList.add(employee2);
+        employeeList.add(employee3);
+        employeeList.add(employee4);
+        employeeList.add(employee5);
+        employeeList.add(employee6);
+        //set departments for employees
+        employee1.setDepartment(programmerDepartment);
+        employee2.setDepartment(analytysisDepartment);
+        employee3.setDepartment(designerDepartment);
+        employee4.setDepartment(financianalDepartment);
+        employee5.setDepartment(programmerDepartment);
+        employee6.setDepartment(programmerDepartment);
+        //set position for employees
+        employee1.setPosition("developer");
+        employee2.setPosition("analytic");
+        employee3.setPosition("designer");
+        employee4.setPosition("finansist");
+        employee5.setPosition("QAdeveloper");
+        employee6.setPosition("developer");
+        //set project for employee
+        employee1.setProjects(listOfProjects1);
+        employee2.setProjects(listOfProjects3);
         //set employees at departments
         programmerDepartment.addEmployee(employee1);
         analytysisDepartment.addEmployee(employee2);
@@ -58,7 +106,43 @@ public class MainClass {
         projectEco.addEmployee(employee2);
         projectEco.addEmployee(employee3);
         projectZELO.addEmployee(employee6);
-        //
-        System.out.println(Menu.showEmployeesWorkingOnProject(projectEco));
+        //set projects for customer
+        customer1.setProjects(listOfProjects1);
+        customer2.setProjects(listOfProjects2);
+        //output employees who working on this project
+        System.out.println("employees who working on this project");
+        System.out.println(Firm.showEmployeesWorkingOnProject(projectEco));
+        System.out.println();
+        //output projects which this employees still working
+        System.out.println("projects which this employees still working");
+        System.out.println(Firm.showProjectWhereEmployeeWorking(employee2));
+        System.out.println();
+        //output list of employees from department who is not working on project
+        System.out.println("list of employees from department who is not working on project");
+        System.out.println(Firm.showEmployeesInDepartmentNotWorkingOnProject(programmerDepartment));
+        System.out.println();
+        //output list of employees which are not working
+        System.out.println("list of employees which are not working");
+        System.out.println(Firm.showEmployeesNotWorking(departmentList));
+        System.out.println();
+        //output list of empoyee for given manager
+        System.out.println("list of empoyee for given manager");
+        System.out.println(Firm.showEmployeesForManager(manager3));
+        System.out.println();
+        //output list of managers for given employee
+        System.out.println("list of managers for given employee");
+        System.out.println(Firm.showManagersForEmployee(employee1));
+        System.out.println();
+        //output list of employees which working with given employee
+        System.out.println("list of employees which working with given employee");
+        System.out.println(Firm.showAnotherEmployeesForEmployee(employee1,departmentList));
+        System.out.println();
+        //output list of projects are performed for given customer
+        System.out.println("list of projects are performed for given customer");
+        System.out.println(Firm.showProjectsForCustomer(customer1));
+        System.out.println();
+        //output list of employees still working on projects are performed for given customer
+        System.out.println("list of employees still working on projects are performed for given customer");
+        System.out.println(Firm.showEmployeesWorkingForCustomer(customer1));
     }
 }

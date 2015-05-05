@@ -8,27 +8,40 @@ import java.util.Set;
 public class Employee extends Person {
     private Department department;
     private String position;
-    private String  workingOnProject;
     private Set<Project> projects = new HashSet<Project>();
 
-    public Employee(Date birthdayDate, IdCard id, String name, String surname, Department department, String position,String workingOnProject ) {
+    public Employee(Date birthdayDate, int id, String name, String surname ) {
         super(birthdayDate, id, name, surname);
+
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
         this.position = position;
-        this.workingOnProject = workingOnProject;
     }
 
-    public void setDepartment(Department department){
-        this.department = department;
+    public Set<Project> getProjects() {
+        return projects;
     }
 
-    public Department getDepartment(){
-        return this.department;
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
     }
 
     @Override
     public String toString(){
-        return "Employee : " +  name + " " + surname  + " " + id + " " + birthdayDate + " " + department + " " + position + workingOnProject;
+        return "Employee : " + "  name= "+  name + "  surname= " + surname  + "  id= " + id + "  birthday= " + birthdayDate + "  department= " + department + "  position= " + position + "  isworking = " + getProjects();
     }
 
 }

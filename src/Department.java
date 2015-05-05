@@ -33,8 +33,4 @@ public class Department {
         employees.add(newEmployee);
     }
 
-    @Override
-    public String toString(){
-        return "Department : " + nameOfDepartment + employees;
-    }
 }
