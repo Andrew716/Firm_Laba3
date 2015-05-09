@@ -1,3 +1,5 @@
+package entities;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,7 +9,7 @@ import java.util.Set;
 public class Department {
     private String nameOfDepartment;
     private Set<Employee> employees = new HashSet<Employee>();
-    //private Map<String,Employee> employees = new HashMap<String,Employee>();
+    //private Map<String,entities.Employee> employees = new HashMap<String,entities.Employee>();
 
     public Department(String nameOfDepartment) {
         this.nameOfDepartment = nameOfDepartment;

@@ -1,3 +1,8 @@
+package entities;
+
+import entities.Person;
+import entities.Project;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -5,9 +10,12 @@ import java.util.Set;
 /**
  * Created by Andrii on 3/17/2015.
  */
-public class Manager extends Person {
+public class Customer extends Person {
     private Set<Project> projects = new HashSet<Project>();
 
+    public Customer(Date birthdayDate, int id, String name, String surname) {
+        super(birthdayDate, id, name, surname);
+    }
 
     public Set<Project> getProjects() {
         return projects;
@@ -17,12 +25,8 @@ public class Manager extends Person {
         this.projects = projects;
     }
 
-    public Manager(Date birthdayDate, int id, String name, String surname) {
-        super(birthdayDate, id, name, surname);
-    }
-
     @Override
     public String toString(){
-        return " Manager : "+ birthdayDate + id + name + surname;
+        return "entities.Customer : " + name + " " + surname + " " + id + " " + birthdayDate;
     }
 }

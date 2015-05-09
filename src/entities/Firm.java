@@ -1,5 +1,8 @@
+package entities;
+
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by Andrii on 5/4/2015.
@@ -7,21 +10,13 @@ import java.util.List;
 public class Firm {
 
 // method which returns list of employees working on given project
-    public static List<Employee> showEmployeesWorkingOnProject(Project project){
-        List<Employee> tempList = new LinkedList<Employee>();
-        for (Employee employee: project.getEmployeesOnProject()){
-            tempList.add(employee);
-        }
-        return tempList;
+    public static Set<Employee> showEmployeesWorkingOnProject(Project project){
+        return project.getEmployeesOnProject();
     }
 
 //method which returns list of projects where given employee still working
-    public static List<Project> showProjectWhereEmployeeWorking(Employee employee){
-        List<Project> tempList = new LinkedList<Project>();
-        for (Project project : employee.getProjects()){
-            tempList.add(project);
-        }
-        return tempList;
+    public static Set<Project> showProjectWhereEmployeeWorking(Employee employee){
+        return employee.getProjects();
     }
 
 //method which returns list of employees from given department which are not working on any project
@@ -82,12 +77,8 @@ public class Firm {
     }
 
 //method which returns list of projects are performed for given customer
-    public static List<Project> showProjectsForCustomer(Customer customer){
-        List<Project> tempList = new LinkedList<Project>();
-        for (Project project : customer.getProjects()){
-            tempList.add(project);
-        }
-        return tempList;
+    public static Set<Project> showProjectsForCustomer(Customer customer){
+        return customer.getProjects();
     }
 
 //method which returns list of employees still working on projects are performed for given customer

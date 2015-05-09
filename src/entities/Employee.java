@@ -1,3 +1,5 @@
+package entities;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -41,7 +43,7 @@ public class Employee extends Person {
 
     @Override
     public String toString(){
-        return "Employee : " + "  name= "+  name + "  surname= " + surname  + "  id= " + id + "  birthday= " + birthdayDate + "  department= " + department + "  position= " + position + "  isworking = " + getProjects();
+        return "entities.Employee : " + "  name= "+  name + "  surname= " + surname  + "  id= " + id + "  birthday= " + birthdayDate + "  department= " + department + "  position= " + position + "  isworking = " + getProjects();
     }
 
 }

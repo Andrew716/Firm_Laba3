@@ -1,3 +1,5 @@
+package entities;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -43,6 +45,6 @@ public class Project {
 
     @Override
     public String toString(){
-        return "Project :  "+"  name of project = " + nameOfProject+ "   " +  manager;
+        return "entities.Project :  "+"  name of project = " + nameOfProject+ "   " +  manager;
     }
 }

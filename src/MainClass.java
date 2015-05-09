@@ -1,3 +1,5 @@
+import entities.*;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -9,19 +11,12 @@ import java.util.*;
 public class MainClass {
     public static void main(String [] args) throws ParseException {
         //create dates
-        final String date1 = "1994-06-25";
-        final String date2 = "1995-04-03";
-        final String date3 = "1985-09-13";
-        final String date4 = "1998-01-18";
-        final String date5 = "1992-02-12";
-        final String date6 = "1993-01-10";
-        //connect date
-        Date birthday1 = new SimpleDateFormat("yyyy-MM-dd").parse(date1);
-        Date birthday2 = new SimpleDateFormat("yyyy-MM-dd").parse(date2);
-        Date birthday3 = new SimpleDateFormat("yyyy-MM-dd").parse(date3);
-        Date birthday4 = new SimpleDateFormat("yyyy-MM-dd").parse(date4);
-        Date birthday5 = new SimpleDateFormat("yyyy-MM-dd").parse(date5);
-        Date birthday6 = new SimpleDateFormat("yyyy-MM-dd").parse(date6);
+        Date birthday1 = new Date(1994,6,25);
+        Date birthday2 = new Date(1995,4,3);
+        Date birthday3 = new Date(1985,9,13);
+        Date birthday4 = new Date(1998,1,18);
+        Date birthday5 = new Date(1992,2,12);
+        Date birthday6 = new Date(1993,1,10);
         //create customers
         Customer customer1 = new Customer(birthday1, 9, "Sasha", "Yanko");
         Customer customer2 = new Customer(birthday3, 10, "Lera", "Andrienko");
@@ -37,7 +32,7 @@ public class MainClass {
         departmentList.add(designerDepartment);
         departmentList.add(financianalDepartment);
         //create managers
-        Manager manager1 = new Manager(birthday1, 1, "Sergii","Khomich");
+        Manager manager1 = new Manager(birthday1, 1, "Serhii","Khomych");
         Manager manager2 = new Manager(birthday2, 2, "Petro", "Poroshenko");
         Manager manager3 = new Manager(birthday1, 3, "Tatyana", "Montyan");
         Manager manager4 = new Manager(birthday4, 5, "Anton", "Malcev" );
